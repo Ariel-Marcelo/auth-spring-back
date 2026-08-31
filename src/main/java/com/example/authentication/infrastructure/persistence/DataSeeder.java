@@ -2,8 +2,8 @@ package com.example.authentication.infrastructure.persistence;
 
 import com.example.authentication.infrastructure.persistence.entities.Role;
 import com.example.authentication.infrastructure.persistence.entities.User;
-import com.example.authentication.infrastructure.persistence.repositories.RoleRepository;
-import com.example.authentication.infrastructure.persistence.repositories.UserRepository;
+import com.example.authentication.infrastructure.repositories.RoleRepository;
+import com.example.authentication.infrastructure.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;

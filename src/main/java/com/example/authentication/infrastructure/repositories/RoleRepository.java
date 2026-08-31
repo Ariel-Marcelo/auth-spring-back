@@ -1,4 +1,4 @@
-package com.example.authentication.infrastructure.persistence.repositories;
+package com.example.authentication.infrastructure.repositories;
 
 import com.example.authentication.infrastructure.persistence.entities.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
