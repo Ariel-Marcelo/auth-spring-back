@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.UuidGenerator;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -23,6 +25,12 @@ public class Role {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, unique = true, length = 20)
     private RoleName role;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "role_permissions", joinColumns = @JoinColumn(name = "role_id"))
+    @Column(name = "permission", nullable = false)
+    @Builder.Default
+    private Set<String> permissions = new HashSet<>();
 
     public enum RoleName {
         ROLE_USER,

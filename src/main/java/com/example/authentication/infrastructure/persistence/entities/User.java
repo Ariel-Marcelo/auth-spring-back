@@ -10,7 +10,6 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-
 @Entity
 @Table(name = "users")
 @Getter
@@ -20,14 +19,13 @@ import java.util.UUID;
 @Builder
 public class User {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @UuidGenerator(style = UuidGenerator.Style.TIME)
     private UUID id;
 
     @Column(nullable = false, unique = true, length = 50)
-    private String userName;
+    private String username;
 
     @Column(nullable = false, unique = true, length = 100)
     private String email;
@@ -38,11 +36,11 @@ public class User {
     @Column(nullable = false, updatable = false)
     private Instant createdAt;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name="role_id")
+            inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     @JsonIgnore
     @Builder.Default
